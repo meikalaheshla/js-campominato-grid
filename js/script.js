@@ -52,10 +52,25 @@ function createCells(cellNumber) {
 // AL CLICK COMPAIONO LE CELLE 
 
 playBtn.addEventListener('click', function () {
-    grid.append('')
+
 
     for (let i = 1; i <= cellsTotal; i++) {
         const cell = createCells(i);
+
+        // AGGIUNGO L EVENT LISTENER ALLE CELLE
+        cell.addEventListener('click', function () {
+
+            // IMPEDISCE DI CLICKARE PIU VOLTE 
+
+            if (cell.classList.contains('clicked')) {
+                return
+            }
+            this.classList.add('clicked')
+            console.log(i)
+
+
+
+        })
         grid.appendChild(cell)
 
     }

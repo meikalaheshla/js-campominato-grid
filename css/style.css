@@ -61,4 +61,12 @@ main {
     height: 10%;
     border: 1px solid black;
 
+    font-weight: bold;
+
+}
+
+/* CLASSI CELLE  */
+
+.cell.clicked {
+    background-color: aqua;
 }
