@@ -26,3 +26,47 @@ Ad esempio:
 Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Le validazioni e i controlli possiamo farli anche in un secondo momento*/
+
+// Prendiamo gli elementi html 
+
+const playBtn = document.getElementById('play-button');
+const grid = document.getElementById('grid');
+
+const row = 10;
+const rowCells = 10;
+const cellsTotal = row * rowCells;
+
+
+// FUNZIONI
+
+function createCells(cellNumber) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+
+
+    return cell;
+}
+
+
+// AL CLICK COMPAIONO LE CELLE 
+
+playBtn.addEventListener('click', function () {
+
+    for (let i = 1; i <= cellsTotal; i++) {
+        const cell = createCells(i);
+        grid.appendChild(cell)
+
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
