@@ -3,3 +3,62 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+}
+
+header button {
+    background-color: green;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none
+}
+
+select {
+    padding: 10px 20px;
+    background-color: lightgreen;
+    border: none;
+    border-radius: 20px;
+}
+
+
+/* GRID */
+main {
+    background-color: aquamarine;
+    padding-top: 100px;
+}
+
+
+#grid {
+    height: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+#grid .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 10%;
+    border: 1px solid black;
+
+}
