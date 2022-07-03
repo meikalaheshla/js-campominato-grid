@@ -42,6 +42,7 @@ const cellsTotal = row * rowCells;
 function createCells(cellNumber) {
     const cell = document.createElement('div');
     cell.className = 'cell';
+    cell.innerText = cellNumber;
 
 
     return cell;
@@ -51,6 +52,7 @@ function createCells(cellNumber) {
 // AL CLICK COMPAIONO LE CELLE 
 
 playBtn.addEventListener('click', function () {
+    grid.append('')
 
     for (let i = 1; i <= cellsTotal; i++) {
         const cell = createCells(i);
