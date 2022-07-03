@@ -32,17 +32,22 @@ Le validazioni e i controlli possiamo farli anche in un secondo momento*/
 const playBtn = document.getElementById('play-button');
 const grid = document.getElementById('grid');
 
-const row = 10;
-const rowCells = 10;
-const cellsTotal = row * rowCells;
+let rows;
+let rowCells;
 
 
-// FUNZIONI
+// FUNZIONe per crare una cella
 
-function createCells(cellNumber) {
+function createCell(cellNumber) {
     const cell = document.createElement('div');
     cell.className = 'cell';
     cell.innerText = cellNumber;
+
+    // GESTISCO LA GRANDEZZA DELLE CELLE A SECONDA DELLA DIFFICOLTA
+
+    const cellSize = `calc(100% / ${rowCells})`
+    cell.style.height = cell.style.width = cellSize;
+
 
 
     return cell;
@@ -53,11 +58,38 @@ function createCells(cellNumber) {
 
 playBtn.addEventListener('click', function () {
 
+    // PRENDO IL VALORE DELLO SWITCH
+
+    const difficulty = document.getElementById('difficulty-select').value
+
+    // RESETTO LA GRIGLIA NEL CASO CE NE FOSSE GIA UNA
+
+    grid.innerHTML = ''
+
+    // CAMBIO IL NUMERO DI CELLE A SECONDA DELLA DIFFICOLTA
+
+    switch (difficulty) {
+        case 'easy':
+        default:
+            rows = rowCells = 10
+            break;
+        case 'medium':
+            rows = rowCells = 9
+            break;
+        case 'hard':
+            rows = rowCells = 7
+            break;
+    }
+
+
+    const cellsTotal = rows * rowCells;
+
+    // CREIAMO LE CELLE CHE CI SERVONO 
 
     for (let i = 1; i <= cellsTotal; i++) {
-        const cell = createCells(i);
+        const cell = createCell(i);
 
-        // AGGIUNGO L EVENT LISTENER ALLE CELLE
+        // AGGIUNGO AZIONI AL CLICK DLLE CELLE
         cell.addEventListener('click', function () {
 
             // IMPEDISCE DI CLICKARE PIU VOLTE 
@@ -66,7 +98,7 @@ playBtn.addEventListener('click', function () {
                 return
             }
             this.classList.add('clicked')
-            console.log(i)
+            console.log(this.innertext)
 
 
 
